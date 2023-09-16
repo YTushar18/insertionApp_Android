@@ -59,4 +59,19 @@ tools:context=".MainActivity">
     android:text="Sorted List:"
     android:textSize="18sp"
     android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/intermediateStepsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Intermediate Steps:"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/stepsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"/>
+
 </LinearLayout>
