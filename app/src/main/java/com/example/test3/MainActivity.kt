@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun insertionSort() {
         if (numbers.size < 2) {
-            showMaxNumbersExceededDialog("You need to add 3 or more values to the array.")
+            showMaxNumbersExceededDialog("You need to add 2 or more values to the array.")
         }
         else {
             val steps = mutableListOf<String>()
