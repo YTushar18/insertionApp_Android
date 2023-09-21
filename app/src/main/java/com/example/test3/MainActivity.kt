@@ -1,19 +1,10 @@
-//package com.example.test3
-//
-//import androidx.appcompat.app.AppCompatActivity
-//import android.os.Bundle
-//
-//class MainActivity : AppCompatActivity() {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
-//    }
-//}
+
 package com.example.test3
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.app.AlertDialog
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -47,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun clearList() { // Add this function
+    private fun clearList() {
         numbers.clear()
         unsortedListTextView.text = "Unsorted List:"
         sortedListTextView.text = "Sorted List:"
@@ -55,29 +46,54 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addNumber() {
-        val input = inputNumberEditText.text.toString().toIntOrNull()
-        input?.let {
-            numbers.add(input)
+        if (numbers.size >= 8) {
+            showMaxNumbersExceededDialog("You can add a maximum of 8 numbers.")
             unsortedListTextView.text = "Unsorted List: ${numbers.joinToString(", ")}"
             inputNumberEditText.text.clear()
+        } else {
+            val input = inputNumberEditText.text.toString().toIntOrNull()
+            input?.let {
+                numbers.add(input)
+                unsortedListTextView.text = "Unsorted List: ${numbers.joinToString(", ")}"
+                inputNumberEditText.text.clear()
+            }
         }
     }
 
-    private fun insertionSort() {
-        val steps = mutableListOf<String>() // Add this line to store intermediate steps
-        for (i in 1 until numbers.size) {
-            val key = numbers[i]
-            var j = i - 1
-            while (j >= 0 && numbers[j] > key) {
-                numbers[j + 1] = numbers[j]
-                j--
-                steps.add("Step $i: ${numbers.joinToString(", ")}") // Record intermediate steps
-            }
-            numbers[j + 1] = key
+    private fun showMaxNumbersExceededDialog(msg : String) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage(msg)
+        builder.setPositiveButton("OK") { dialog, _ ->
+            dialog.dismiss()
         }
 
-        displayIntermediateSteps(steps) // Display intermediate steps
-        sortedListTextView.text = "Sorted List: ${numbers.joinToString(", ")}"
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    private fun insertionSort() {
+        if (numbers.size < 2) {
+            showMaxNumbersExceededDialog("You need to add 3 or more values to the array.")
+        }
+        else {
+            val steps = mutableListOf<String>()
+            var counter = 1
+            for (i in 1 until numbers.size) {
+                val key = numbers[i]
+                var j = i - 1
+                while (j >= 0 && numbers[j] > key) {
+                    numbers[j + 1] = numbers[j]
+                    j--
+                    steps.add("Step $counter: ${numbers.joinToString(", ")}") // Record intermediate steps
+                    counter++
+                }
+                numbers[j + 1] = key
+            }
+
+            displayIntermediateSteps(steps) // Display intermediate steps
+            sortedListTextView.text = "Sorted List: ${numbers.joinToString(", ")}"
+        }
     }
 
     private fun displayIntermediateSteps(steps: List<String>) {
@@ -89,4 +105,5 @@ class MainActivity : AppCompatActivity() {
         intermediateStepsTextView.visibility = View.GONE
         stepsTextView.text = ""
     }
+
 }

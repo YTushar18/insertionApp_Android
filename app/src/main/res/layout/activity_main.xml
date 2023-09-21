@@ -19,46 +19,57 @@ android:orientation="vertical"
 android:padding="16dp"
 tools:context=".MainActivity">
 
-<TextView
-    android:id="@+id/unsortedListTextView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Unsorted List:"
-    android:textSize="18sp"
-    android:textStyle="bold"/>
-
-<EditText
-    android:id="@+id/inputNumberEditText"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="Enter a number"/>
-
-<Button
-    android:id="@+id/addButton"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Add Number"/>
-
-<Button
-    android:id="@+id/sortButton"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Insertion Sort"/>
-
-<Button
-    android:id="@+id/clearButton"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Clear List"/>
-
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insertion Sort App"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:background="#000288D1"
+        android:textColor="@color/black"
+        android:paddingTop="16dp"
+        android:paddingBottom="20dp" />
 
     <TextView
-    android:id="@+id/sortedListTextView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Sorted List:"
-    android:textSize="18sp"
-    android:textStyle="bold"/>
+        android:id="@+id/unsortedListTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unsorted List:"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/inputNumberEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter a number" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Number" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear List" />
+
+    <Button
+        android:id="@+id/sortButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insertion Sort" />
+
+    <TextView
+        android:id="@+id/sortedListTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sorted List:"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/intermediateStepsTextView"
@@ -66,12 +77,14 @@ tools:context=".MainActivity">
         android:layout_height="wrap_content"
         android:text="Intermediate Steps:"
         android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/stepsTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
+
 
 </LinearLayout>
